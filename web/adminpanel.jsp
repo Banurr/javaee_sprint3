@@ -56,7 +56,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><%=list.get(index).get(4)%></button>
-                    <button class="btn btn-primary"><%=list.get(index).get(5)%></button>
+                    <button class="btn btn-success"><%=list.get(index).get(5)%></button>
                 </div>
             </div>
         </div>
