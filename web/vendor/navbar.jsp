@@ -1,4 +1,3 @@
-
 <div class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div style="display: flex;width: 85%;margin:auto auto">
         <a class="navbar-brand" href="/"><b>NEWS.COM</b></a>
