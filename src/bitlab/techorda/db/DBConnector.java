@@ -97,4 +97,30 @@ public class DBConnector
         }
         return news;
     }
+    public static ArrayList<News> langNews(long id)
+    {
+        ArrayList<News> news = new ArrayList<>();
+        try
+        {
+            PreparedStatement preparedStatement = connection.prepareStatement("select * from news where language_id = ?");
+            preparedStatement.setLong(1,id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while(resultSet.next())
+            {
+                News news1 = new News();
+                news1.setId(resultSet.getLong("id"));
+                news1.setTitle(resultSet.getString("title"));
+                news1.setContent(resultSet.getString("content"));
+                news1.setLanguage_id(resultSet.getInt("language_id"));
+                news1.setPostDate(resultSet.getTimestamp("post_date"));
+                news.add(news1);
+            }
+            preparedStatement.close();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return news;
+    }
 }

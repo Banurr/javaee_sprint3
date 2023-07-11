@@ -15,9 +15,9 @@ public class HomeServlet extends HttpServlet
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        ArrayList<News> news = DBConnector.allNews();
+
         Cookie[] cookies = request.getCookies();
-        String id = "2";
+        String id = "1";
         if(cookies!=null)
         {
             for(Cookie c : cookies)
@@ -29,6 +29,7 @@ public class HomeServlet extends HttpServlet
                 }
             }
         }
+        ArrayList<News> news = DBConnector.langNews(Long.parseLong(id));
         request.setAttribute("lang",id);
         request.setAttribute("novosti",news);
         request.getRequestDispatcher("/home.jsp").forward(request,response);
