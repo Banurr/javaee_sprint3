@@ -13,9 +13,7 @@
     <%
         String id = request.getAttribute("lang").toString();
         String site = id.equals("2") ? "Панель Админа" : "Admin Panel";
-        String title = id.equals("2") ? "Заголовок" : "Title";
         String date = id.equals("2") ? "Дата публикации" : "Publication date";
-        String til = id.equals("2") ? "Язык" : "Language";
         String more = id.equals("2") ? "Подробности" : "Details";
         String button = id.equals("2") ? "Добавить" : "Add new";
         int index = Integer.parseInt(id)-1;
@@ -44,7 +42,7 @@
                     </div>
                     <div class="form-group">
                         <label for="message-text" class="col-form-label"><%=list.get(index).get(2)%></label>
-                        <textarea class="form-control" id="message-text" name="content" rows="5" placeholder="<%=list.get(index).get(2)%>"></textarea>
+                        <textarea style="width: 70%" class="form-control" id="message-text" name="content" placeholder="<%=list.get(index).get(2)%>"></textarea>
                     </div>
                     <div class="form-group" style="width:70%">
                         <label for="city" class="my-1 mr-sm-2 mt-3"><%=list.get(index).get(3)%></label>
@@ -66,9 +64,9 @@
     <thead>
     <tr>
         <th scope="col">ID</th>
-        <th scope="col"><%=title%></th>
+        <th scope="col"><%=list.get(index).get(1)%></th>
         <th scope="col"><%=date%></th>
-        <th scope="col"><%=til%></th>
+        <th scope="col"><%=list.get(index).get(3)%></th>
         <th scope="col"><%=more%></th>
     </tr>
     </thead>
@@ -100,11 +98,11 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="t<%=n.getId()%>"><%=list.get(index).get(1)%></label>
-                                <input type="text" class="form-control" id="name<%=n.getId()%>" name="newtitle" style="width : 70%" value="<%=n.getTitle()%>">
+                                <input type="text" class="form-control" id="t<%=n.getId()%>" name="newtitle" style="width : 70%" value="<%=n.getTitle()%>">
                             </div>
                             <div class="form-group">
                                 <label for="c<%=n.getId()%>"><%=list.get(index).get(2)%></label>
-                                <textarea class="form-control" id="surname<%=n.getId()%>" name="newcontent" style="width : 70%" ><%=n.getContent()%></textarea>
+                                <textarea class="form-control" id="c<%=n.getId()%>" name="newcontent" style="width : 70%" ><%=n.getContent()%></textarea>
                             </div>
                             <div class="form-group" style="width:70%">
                                 <label for="city<%=n.getId()%>" class="my-1 mr-sm-2 mt-3"><%=list.get(index).get(3)%></label>
